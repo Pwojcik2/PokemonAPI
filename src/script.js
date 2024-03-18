@@ -31,8 +31,7 @@ let generateCard = (data) => {
             <img src=${imgSrc} />
             <h2 class="poke-name">${pokeName}</h2>
             <div class="types">
-                <span>type 1</span>
-                <span>type 2</span>
+
             </div>
             <div class="stats">
                 <div>
@@ -49,6 +48,15 @@ let generateCard = (data) => {
                 </div>
             </div>
     `
+    appendTypes(data.types)
+}
+
+let appendTypes = (types) => {
+    types.forEach(item => {
+        let span = document.createElement("SPAN")
+        span.textContent = item.type.name
+        document.querySelector(".types").appendChild(span)
+    })
 }
 
 btn.addEventListener("click", getPokeData)
